@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "3d10edd7-49a0-4564-ada4-a71d8701d611",
+		"name": "yt_cmt_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40274651"
+	},
+	"item": [
+		{
+			"name": "endpoints",
+			"item": [
+				{
+					"name": "Server health check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"health"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8000/api/health\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all comments | default new comment first",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8000/api/video-comments\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get top comments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments?sort=top",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "top"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8000/api/video-comments?sort=top\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments",
+								"count"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8000/api/video-comments/count\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a comment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Updated comment text hereeeeeeee\",\r\n    \"user_name\": \"JohnDoe\",\r\n    \"comment_id\": 1\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments",
+								"update"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT \"http://localhost:8000/api/video-comments/1\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Accept: application/json\" \\\r\n  -d '{\r\n    \"content\": \"Updated comment text here\",\r\n    \"user_name\": \"JohnDoe\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Like a comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments",
+								"like"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8000/api/video-comments/1/like\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				},
+				{
+					"name": "Dislike a comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments/dislike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments",
+								"dislike"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8000/api/video-comments/1/dislike\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				},
+				{
+					"name": "Add new comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"This is an awesome video!\",\r\n    \"user_name\": \"JohnDoe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8000/api/video-comments\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Accept: application/json\" \\\r\n  -d '{\r\n    \"content\": \"This is an awesome video!\",\r\n    \"user_name\": \"JohnDoe\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Replies to comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"bad one\",\r\n    \"user_name\": \"dora\",\r\n    \"comment_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments/reply",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments",
+								"reply"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8000/api/video-comments/1/replies\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Accept: application/json\" \\\r\n  -d '{\r\n    \"content\": \"This is my reply to the comment\",\r\n    \"user_name\": \"JaneDoe\"\r\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "Get replies for a specific commen",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/video-comments/5/replies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"video-comments",
+								"5",
+								"replies"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8000/api/video-comments/1/replies\" \\\r\n  -H \"Accept: application/json\""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
